@@ -1,0 +1,30 @@
+$bgColors: primary $bg-color--primary, secondary $bg-color--secondary, third $bg-color--third, fourty $bg-color--fourty;
+$textColors: primary $text-color--primary, secondary $text-color--secondary, hover $text-color--hover, disabled $text-color--disabled, error $text-color--error;
+$buttonColors: primary $button-color--primary, disabled $button-color--disabled;
+
+@each $bgColor in $bgColors {
+    $key: nth($bgColor, 1);
+    $value: nth($bgColor, 2);
+
+    .bg-color--#{$key} {
+        background-color: #{$value};
+    }
+}
+
+@each $textColor in $textColors {
+    $key: nth($textColor, 1);
+    $value: nth($textColor, 2);
+
+    .color--#{$key} {
+        color: #{$value};
+    }
+}
+
+@each $buttonColor in $buttonColors {
+    $key: nth($buttonColor, 1);
+    $value: nth($buttonColor, 2);
+
+    .button-color--#{$key} {
+        background-color: #{$value};
+    }
+}

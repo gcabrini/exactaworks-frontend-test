@@ -1,0 +1,31 @@
+$fontSizes: smallest $font-size--smallest, small $font-size--small, normal $font-size--normal, large $font-size--large;
+$fontFamilies: regular $font-family--regular, bold $font-family--bold, boldest $font-family--boldest;
+
+@each $fontSize in $fontSizes {
+    $key: nth($fontSize, 1);
+    $value: nth($fontSize, 2);
+    .font-size--#{$key} {
+        background-color: #{$value};
+    }
+}
+
+@each $fontFamily in $fontFamilies {
+    $key: nth($fontFamily, 1);
+    $value: nth($fontFamily, 2);
+
+    @font-face {
+        font-family: '#{$value}';
+        src: url('/assets/fonts/#{$value}.eot');
+        src: url('/assets/fonts/#{$value}.eot?#iefix') format('embedded-opentype'),
+            url('/assets/fonts/#{$value}.woff2') format('woff2'),
+            url('/assets/fonts/#{$value}.woff') format('woff'),
+            url('/assets/fonts/#{$value}.ttf') format('truetype'),
+            url('/assets/fonts/#{$value}.svg##{$value}') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .font-family--#{$key} {
+        font-family: '#{$value}';
+    }
+}

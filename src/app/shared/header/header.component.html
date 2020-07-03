@@ -1,0 +1,23 @@
+<nav class="navbar bg-color--primary">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" aria-expanded="false" (click)="toggleVisibility()">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" routerLink="/">
+        <img src="/assets/images/logo.png" alt="Logo" width="151" height="52" title="Ir para home">
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" [ngClass]="{ 'in': isVisible }">
+      <ul class="nav navbar-nav navbar-right menu">
+        <li *ngFor="let link of links" routerLinkActive="active" class="menu__item">
+          <a [routerLink]="link.url" class="menu__link color--secondary text-uppercase">{{ link.label }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

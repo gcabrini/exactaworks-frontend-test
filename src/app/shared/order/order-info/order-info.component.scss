@@ -1,0 +1,30 @@
+@import "~scss/themes";
+
+.order-info {
+    background-color: $bg-color--secondary;
+    font-family: $font-family--bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+
+    &__item {
+        margin-bottom: 0;
+    }
+
+    &__label {
+        font-size: $font-size--small;
+        color: $text-color--hover;
+    }
+    
+    &__value {
+        font-size: $font-size--normal;
+        color: $text-color--secondary;
+    }
+
+    &__label, 
+    &__value {
+        &--small {
+            font-size: $font-size--smallest;
+        }
+    }
+}

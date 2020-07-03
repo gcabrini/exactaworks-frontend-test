@@ -1,0 +1,33 @@
+<div class="order-info">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-4">
+        <dl class="order-info__item">
+          <dt class="order-info__label">Me chamo:</dt>
+          <dd class="order-info__value">{{ info.name }} </dd>
+        </dl>
+        <p>
+          <span class="order-info__label order-info__label--small">CPF:</span> <span class="order-info__value order-info__value--small">{{ info.cpf }}</span>
+        </p>
+      </div>
+      <div class="col-md-2 col-sm-2">
+        <dl class="order-info__item">
+          <dt class="order-info__label">Preciso de:</dt>
+          <dd class="order-info__value">R$ {{ info.value }} </dd>
+        </dl>
+      </div>
+      <div class="col-md-2 col-sm-2">
+        <dl class="order-info__item">
+          <dt class="order-info__label">Quero pagar em:</dt>
+          <dd class="order-info__value">{{ info.installments }} vezes</dd>
+        </dl>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <dl class="order-info__item">
+          <dt class="order-info__label">Para:</dt>
+          <dd class="order-info__value">{{ info.description }} vezes</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>

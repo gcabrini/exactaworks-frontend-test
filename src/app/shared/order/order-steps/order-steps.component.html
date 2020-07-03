@@ -1,0 +1,125 @@
+<div class="order-steps">
+  <div class="container">
+    <div class="row">
+      <div class="order-steps__item col-md-3 col-sm-3">
+        <a class="order-steps__link" href="#">Simule</a>
+      </div>
+      <div class="order-steps__item col-md-3 col-sm-3">
+        <a class="order-steps__link order-steps__link--active" href="#">Preencha o cadastro</a>
+      </div>
+      <div class="order-steps__item col-md-3 col-sm-3">
+        <a class="order-steps__link" href="#">Revise seu pedido</a>
+      </div>
+      <div class="order-steps__item col-md-3 col-sm-3">
+        <a class="order-steps__link" href="#">Finalize o pedido</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="order-steps__form container">
+  <div class="alert alert-success" role="alert" *ngIf="dataSended">
+    Dados enviados com sucesso!
+  </div>
+
+  <h2 class="step-title">Dados pessoais</h2>
+  <form action="" #orderForm="ngForm">
+
+    <div class="row">
+      <div class="col-md-4 col-sm-4 input--separator">
+        <div class="input-group">
+          <label>
+            Número do RG
+          </label>
+          <input 
+            type="text" 
+            [(ngModel)]="order.rg" 
+            name="rg" 
+            maxlength="9"
+            required
+            appInputHover="input-group"
+            appOnlyNumber>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4 input--separator">
+        <div class="input-group">
+          <label>
+            Data de emissão
+          </label>
+          <input 
+            type="date" 
+            [(ngModel)]="order.issue_date" 
+            name="issue_date"
+            required
+            appInputHover="input-group">
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="input-group">
+          <label>
+            Orgão expedidor
+          </label>
+          <select 
+            [(ngModel)]="order.issuing_agency" 
+            name="issuing_agency" 
+            required
+            appInputHover="input-group">
+            <option *ngFor="let issuingAgency of issuingAgencies" 
+              [value]="issuingAgency.value">
+              {{ issuingAgency.label }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-sm-6 box--center">
+        <div class="input-group input-group--inline">
+          
+          <div class="row">
+            <div class="col-md-2 col-sm-2">
+              <label class="radio-label">
+                Sexo
+              </label>
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-6 input--separator">
+              <input 
+                type="radio" 
+                [(ngModel)]="order.gender" 
+                name="gender" 
+                class="hide" 
+                id="male"
+                value="male"
+                checked>
+              <label for="male">Masculino</label>
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-6">
+              <input 
+                type="radio" 
+                [(ngModel)]="order.gender" 
+                name="gender" 
+                class="hide" 
+                id="female"
+                value="female">
+              <label for="female">Feminino</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 col-sm-4 box--center">
+          <button 
+            type="submit" 
+            class="button button--block button--primary"
+            (click)="sendOrderForm(orderForm)"
+            [ngClass]="{ 'button--disabled': isSendOrderButtonDisabled && !orderForm.form.valid }"
+            [disabled]="isSendOrderButtonDisabled && !orderForm.form.valid">
+            Continuar
+          </button>
+      </div>
+    </div>
+  </form>
+</div>

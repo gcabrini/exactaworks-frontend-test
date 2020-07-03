@@ -1,0 +1,107 @@
+.input {
+    &-group {
+        position: relative;
+        display: inline-block;
+        text-align: left;
+        width: 100%;
+        margin-right: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: $text-color--primary;
+
+        @media (min-width: 768px) {
+            margin-bottom: 20px;
+        }
+
+        label {
+            text-transform: uppercase;
+            display: block;
+            cursor: pointer;
+
+            &.radio-label {
+                margin-top: 5px;
+            }
+        }
+
+        input,
+        select,
+        [type="radio"] + label {
+            outline: none;
+            width: 100%;
+            -moz-appearance: none;
+            -ms-progress-appearance: none;
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: transparent;
+            border: 2px solid $bg-color--primary;
+            padding: 5px;
+            border-radius: 2px;
+        }
+
+        [type="radio"] + label {
+            text-align: center;
+        }
+
+        [type="radio"]:checked + label {
+            background-color: $bg-color--primary;
+            color: $text-color--secondary;
+        }
+
+        &--inline {
+            .input--separator {
+                &::after {
+                    display: block;
+                    margin-top: -3px;
+                }
+            }
+        }
+    }
+
+    &--separator {
+        position: relative;
+
+        &::after {
+            display: none;
+            content: '';
+            background-color: $bg-color--primary;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 4px;
+            height: 2px;
+            transform: translate(-50%, -50%);
+            margin-right: -4px;
+            margin-top: 6px;
+    
+            @media (min-width: 768px) {
+                display: block;
+            }
+        }
+    }
+
+    &--error {
+        label,
+        input,
+        select {
+            color: $text-color--error;
+        }
+
+        input,
+        select {
+            border-color: $text-color--error;
+        }
+    }
+
+    &--hover {
+        label,
+        input,
+        select {
+            color: $text-color--hover;
+        }
+
+        input,
+        select {
+            border-color: $text-color--hover;
+        }
+    }
+}

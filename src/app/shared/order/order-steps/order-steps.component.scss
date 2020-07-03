@@ -1,0 +1,74 @@
+@import "~scss/themes";
+
+.order-steps {
+    background-color: $bg-color--third;
+    counter-reset: section;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    &__item {
+        margin-top: 15px;
+        margin-bottom: 15px;
+
+        @media (min-width: 768px) {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    &__link {
+        color: $text-color--disabled;
+        font-family: $font-family--boldest;
+        text-transform: uppercase;
+
+        &::before {
+            counter-increment: section;
+            content: counter(section);
+            display: inline-block;
+            text-align: center;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border-width: 2px;
+            margin-right: 5px;
+            border-style: solid;
+            border-color: $text-color--disabled;
+            color: $text-color--disabled;
+        }
+
+        &--active {
+            color: $text-color--primary;
+
+            &::before {
+                background-color: $bg-color--primary;
+                color: $text-color--hover;
+                border-color: $bg-color--primary;
+            }
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__form {
+        padding-bottom: 20px;
+
+        @media (min-width: 768px) {
+            margin-top: 40px;
+            padding-bottom: 0;
+        }
+    }
+}
+
+.step-title {
+    font-family: $font-family--boldest;
+    font-size: $font-size--large;
+    color: $text-color--primary;
+    text-transform: uppercase;
+
+    @media (min-width: 768px) {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,39 @@
+.button {
+    text-transform: uppercase;
+    border: none;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 3px;
+
+    &::after {
+        content: '';
+        display: inline-block;
+        position: relative;
+        background-image: url("/assets/images/button-arrow.png");
+        background-position: 0 0;
+        width: 9px;
+        height: 17px;
+        top: 4px;
+        left: 10px;
+    }
+
+    &--block {
+        width: 100%;
+        display: block;
+    }
+
+    &--primary {
+        background-color: $button-color--primary;
+        color: $text-color--secondary;
+    }
+
+    &--disabled {
+        background-color: $button-color--disabled;
+        color: $text-color--disabled;
+
+        &::after {
+            background-position: 0 -17px;
+        }
+    }
+}
